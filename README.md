@@ -1,2 +1,4 @@
 # Freedom-Aftershock
-FEEL THE BERN
+Gregory Redozubov, Krzysztof Hochlewicz, Peter Strbik
+
+
