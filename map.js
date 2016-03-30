@@ -14,11 +14,11 @@ d3.csv("2016DemPrimary.csv", function(rows){
 	}
 	for (var i = 0; i < states.length; i++){
 	    if (states[i].Month == m && states[i].Day == d){
-		console.log(states[i].fips);
+		console.log(states[i].StateName);
 	    }
 	}
 	currday.textcontent = m + "/" + d + "/16";
-    }, 1000);
+    }, 500);
 
 });
 
