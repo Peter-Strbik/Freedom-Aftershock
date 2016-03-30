@@ -1,0 +1,27 @@
+Pseudocode:
+
+dem_data = read(2016DemPrimary.csv)
+
+//number of days in months in 2016
+//0 is placeholder so [1] == january
+months = (0, 31, 29, 31, 30, 31, 30) //everything after June is irrlevant
+
+m = 1
+while m <= 6:
+	d = 1
+	while d <= months[m]: //goes through each day in each month Jan->June
+		for i in len(dem_data):
+			if i[2] == m and i[3] == d: 
+				#state held the primary that day
+				color_state(i[1], i[4] i[5])
+		wait(1000)
+		d += 1
+		currday.textcontent = str(m) + "/" + str(d) + "/16"
+	m += 1
+
+function color_state(state, hil, bern):
+	d3.selectAll(state)
+	.transition()
+	.duration(2000)
+	.style( color = "rgb(" + [hil, 0, bern].join(",") + ")"			
+				
