@@ -1,13 +1,18 @@
-var map = d3.geomap.choropleth()
-    .geofile('/d3-geomap/topojson/countries/USA.json')
-    .projection(d3.geo.albersUsa)
-    .column('Hilary Clinton')
-    .unitId('fips')
-    .scale(1000)
-    .legend(true);
+var states = [];
 
-d3.csv('/data/2016DemPrimary.csv', function(error, data) {
-    d3.select('#map')
-        .datum(data)
-        .call(map.draw, map);
+d3.csv("2016DemPrimary.csv", function(rows){
+    states = rows;
+    console.log(states)
+    test();
 });
+
+
+var test = function(){
+    for (var i = 0; i < states.length; i++){
+	var wat = states[i].fips;
+	console.log(wat);
+	d3.select('body')
+	  .append('p')
+	  .text(states[i].fips);
+    }
+};
