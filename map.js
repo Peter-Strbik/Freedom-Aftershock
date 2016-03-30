@@ -15,6 +15,9 @@ d3.csv("2016DemPrimary.csv", function(rows){
 	for (var i = 0; i < states.length; i++){
 	    if (states[i].Month == m && states[i].Day == d){
 		console.log(states[i].StateName);
+		d3.select("#" + states[i].fips)
+		  .style("fill", "purple")
+		  .transition()
 	    }
 	}
 	currday.textcontent = m + "/" + d + "/16";
