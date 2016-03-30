@@ -13,11 +13,12 @@ d3.csv("2016DemPrimary.csv", function(rows){
 	    d = 1;
 	}
 	for (var i = 0; i < states.length; i++){
-	    if (states[i].Month == m && states[i].Day == d){
-		console.log(states[i].StateName);
-		d3.select("#" + states[i].fips)
-		  .style("fill", "purple")
-		  .transition()
+	    if (states[i].Month == m && states[i].Day == d && states[i].BernieSanders != 0){
+		//console.log(states[i].StateName);
+			d3.select("#" + states[i].fips)
+			.transition()
+			.duration(3000)
+			.style("fill", "rgb(" + [255 * (states[i].HillaryClinton / 100), 0, 255 * (states[i].BernieSanders / 100)].join(",") + ")")
 	    }
 	}
 	currday.innerHTML = m + "/" + d + "/16";
