@@ -20,7 +20,7 @@ d3.csv("2016DemPrimary.csv", function(rows){
 		  .transition()
 	    }
 	}
-	currday.textcontent = m + "/" + d + "/16";
+	currday.innerHTML = m + "/" + d + "/16";
     }, 500);
 
 });
