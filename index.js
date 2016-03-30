@@ -1,3 +1,19 @@
-var states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Lousiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregan", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
 
-var percentages = [23, 82, 23, 29, 39, 59, 31, 53, 0, 34, 28, 70, 78, 49, 49, 68, 42, 23, 64, 28, 49, 50, 62, 17, 49, 0, 57, 47, 60, 32, 33, 29, 41, 0, 43, 52, 0, 28, 0, 29, 18, 32, 33, 79, 86, 35, 73, 57, 44, 0]
+
+
+
+
+
+var map = d3.geomap.choropleth()
+    .geofile('/d3-geomap/topojson/countries/USA.json')
+    .projection(d3.geo.albersUsa)
+    .column('Hilary Clinton')
+    .unitId('fips')
+    .scale(1000)
+    .legend(true);
+
+d3.csv('/2016DemPrimary.csv', function(error, data) {
+    d3.select('#map')
+        .datum(data)
+        .call(map.draw, map);
+});
